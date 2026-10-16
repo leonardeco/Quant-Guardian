@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Barlow", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-ink: #121510;
+  --color-panel: #1c2219;
+  --color-line: #343b2e;
+  --color-paper: #e8efe3;
+  --color-mute: #909888;
+  --color-lime: #d2f25a;
+  --color-danger: #ff6a45;
+  --color-warn: #e6b84a;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-md border border-line bg-ink px-3 py-2 text-sm text-paper outline-none;
+  }
+  .field:focus { border-color: var(--color-lime); }
+  .label {
+    @apply mb-1 block text-[11px] font-medium uppercase tracking-[0.16em] text-mute;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium disabled:opacity-50;
+  }
+  .btn-lime { @apply bg-lime text-ink; }
+  .btn-lime:hover { filter: brightness(1.05); }
+  .btn-ghost { @apply border border-line text-paper; }
+  .btn-ghost:hover { background: #ffffff10; }
+  .panel { @apply rounded-xl border border-line bg-panel p-5; }
+  .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+}
+
+.lamp-kill { box-shadow: 0 0 0 6px #ff6a4522; }
